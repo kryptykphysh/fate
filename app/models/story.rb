@@ -3,5 +3,7 @@ class Story < ActiveRecord::Base
 
   default_scope order('title ASC')
 
+  has_many :characters
+
   validates :title, presence: true
 end

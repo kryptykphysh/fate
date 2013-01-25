@@ -1,4 +1,7 @@
 Fate::Application.routes.draw do
+  resources :characters
+
+
   resources :stories
 
 

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  story_id: 1
+  name: MyString
+  physical_stress: 1
+  mental_stress: 1
+  description: MyText
+  refresh: 1
+  character_idea: MyText
+  phase_trio_one: MyText
+  phase_trio_two: MyText
+  phase_trio_three: MyText
+
+two:
+  story_id: 1
+  name: MyString
+  physical_stress: 1
+  mental_stress: 1
+  description: MyText
+  refresh: 1
+  character_idea: MyText
+  phase_trio_one: MyText
+  phase_trio_two: MyText
+  phase_trio_three: MyText
