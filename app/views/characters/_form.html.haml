@@ -2,7 +2,8 @@
   .control-group
     = f.label :story_id, :class => 'control-label'
     .controls
-      = f.number_field :story_id, :class => 'number_field'
+      = f.collection_select :story_id, Story.all, :id, :title, 
+        :prompt => :true, :class => 'number_field'
   .control-group
     = f.label :name, :class => 'control-label'
     .controls
@@ -18,7 +19,7 @@
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_area :description, :class => 'text_area'
+      = f.text_area :description, :rows => 3, :class => 'text_area'
   .control-group
     = f.label :refresh, :class => 'control-label'
     .controls
@@ -26,19 +27,19 @@
   .control-group
     = f.label :character_idea, :class => 'control-label'
     .controls
-      = f.text_area :character_idea, :class => 'text_area'
+      = f.text_area :character_idea, :rows => 5, :class => 'text_area'
   .control-group
     = f.label :phase_trio_one, :class => 'control-label'
     .controls
-      = f.text_area :phase_trio_one, :class => 'text_area'
+      = f.text_area :phase_trio_one, :rows => 3, :class => 'text_area'
   .control-group
     = f.label :phase_trio_two, :class => 'control-label'
     .controls
-      = f.text_area :phase_trio_two, :class => 'text_area'
+      = f.text_area :phase_trio_two, :rows => 3, :class => 'text_area'
   .control-group
     = f.label :phase_trio_three, :class => 'control-label'
     .controls
-      = f.text_area :phase_trio_three, :class => 'text_area'
+      = f.text_area :phase_trio_three, :rows => 3, :class => 'text_area'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), characters_path, :class => 'btn'
