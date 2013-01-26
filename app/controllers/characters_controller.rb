@@ -25,6 +25,9 @@ class CharactersController < ApplicationController
   # GET /characters/new.json
   def new
     @character = Character.new
+    @character.refresh = 3
+    @character.physical_stress = 2
+    @character.mental_stress = 2
 
     respond_to do |format|
       format.html # new.html.erb

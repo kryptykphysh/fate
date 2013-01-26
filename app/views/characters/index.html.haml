@@ -4,33 +4,23 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:story_id)
       %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:story_id)
       %th= model_class.human_attribute_name(:physical_stress)
       %th= model_class.human_attribute_name(:mental_stress)
       %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:refresh)
-      %th= model_class.human_attribute_name(:character_idea)
-      %th= model_class.human_attribute_name(:phase_trio_one)
-      %th= model_class.human_attribute_name(:phase_trio_two)
-      %th= model_class.human_attribute_name(:phase_trio_three)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @characters.each do |character|
       %tr
-        %td= link_to character.id, character_path(character)
-        %td= character.story_id
-        %td= character.name
+        %td= link_to character.name, character_path(character)
+        %td= character.story.title
         %td= character.physical_stress
         %td= character.mental_stress
-        %td= character.description
+        %td= raw truncate(character.description)
         %td= character.refresh
-        %td= character.character_idea
-        %td= character.phase_trio_one
-        %td= character.phase_trio_two
-        %td= character.phase_trio_three
         %td=l character.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_character_path(character), :class => 'btn btn-mini'

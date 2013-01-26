@@ -4,43 +4,33 @@
 
 %p
   %strong= model_class.human_attribute_name(:story_id) + ':'
-  %br
-  = @character.story_id
+  = @character.story.title
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
-  %br
   = @character.name
 %p
   %strong= model_class.human_attribute_name(:physical_stress) + ':'
-  %br
   = @character.physical_stress
 %p
   %strong= model_class.human_attribute_name(:mental_stress) + ':'
-  %br
   = @character.mental_stress
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
-  %br
-  = @character.description
+  = raw @character.description
 %p
   %strong= model_class.human_attribute_name(:refresh) + ':'
-  %br
   = @character.refresh
 %p
   %strong= model_class.human_attribute_name(:character_idea) + ':'
-  %br
-  = @character.character_idea
+  = raw @character.character_idea
 %p
   %strong= model_class.human_attribute_name(:phase_trio_one) + ':'
-  %br
   = @character.phase_trio_one
 %p
   %strong= model_class.human_attribute_name(:phase_trio_two) + ':'
-  %br
   = @character.phase_trio_two
 %p
   %strong= model_class.human_attribute_name(:phase_trio_three) + ':'
-  %br
   = @character.phase_trio_three
 
 .form-actions
