@@ -4,7 +4,6 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:type)
       %th= model_class.human_attribute_name(:created_at)
@@ -12,8 +11,7 @@
   %tbody
     - @aspects.each do |aspect|
       %tr
-        %td= link_to aspect.id, aspect_path(aspect)
-        %td= aspect.title
+        %td= link_to aspect.title, aspect_path(aspect)
         %td= aspect.type
         %td=l aspect.created_at
         %td

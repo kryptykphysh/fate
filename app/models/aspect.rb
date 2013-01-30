@@ -4,4 +4,6 @@ class Aspect < ActiveRecord::Base
   has_many :aspect_links, :dependent => :destroy
   has_many :stories, :through => :aspect_links, :source => :aspected, :source_type => 'Story'
   has_many :characters, :through => :aspect_links, :source => :aspected, :source_type => 'Character'
+
+  default_scope order('title ASC')
 end
