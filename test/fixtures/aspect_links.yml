@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  aspected_id: 1
+  aspected_type: MyString
+  note: MyText
+
+two:
+  aspected_id: 1
+  aspected_type: MyString
+  note: MyText

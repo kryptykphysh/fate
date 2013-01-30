@@ -1,0 +1,20 @@
+= form_for @aspect_link, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :aspected_id, :class => 'control-label'
+    .controls
+      = f.number_field :aspected_id, :class => 'number_field'
+  .control-group
+    = f.label :aspected_type, :class => 'control-label'
+    .controls
+      = f.text_field :aspected_type, :class => 'text_field'
+  .control-group
+    = f.label :aspect_id, :class => 'control-label'
+    .controls
+      = f.number_field :aspect_id, :class => 'number_field'
+  .control-group
+    = f.label :note, :class => 'control-label'
+    .controls
+      = f.text_area :note, :class => 'text_area'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), aspect_links_path, :class => 'btn'

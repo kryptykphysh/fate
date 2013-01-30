@@ -1,4 +1,10 @@
 Fate::Application.routes.draw do
+  resources :aspects
+
+
+  resources :aspect_links
+
+
   resources :characters
 
 
