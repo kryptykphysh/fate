@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130010724) do
+ActiveRecord::Schema.define(:version => 20130131003232) do
 
   create_table "aspect_links", :force => true do |t|
     t.integer  "aspected_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130130010724) do
 
   create_table "aspects", :force => true do |t|
     t.string   "title"
-    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

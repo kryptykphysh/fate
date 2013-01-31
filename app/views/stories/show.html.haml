@@ -4,8 +4,12 @@
 
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
-  %br
   = @story.title
+
+%p
+  %strong Aspects:
+- @story.aspects.each do |aspect|
+  %p= link_to aspect.title, aspect_path(aspect)
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), stories_path, :class => 'btn'
