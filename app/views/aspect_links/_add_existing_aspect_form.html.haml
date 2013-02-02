@@ -1,0 +1,18 @@
+%div#add_existing_aspect
+  %p
+    %button#add_existing_aspect_toggle.btn.btn-primary Add An Existing Aspect Toggle
+  
+  %div#add_existing_aspect_form{:style=>"display:none"}
+    = form_for @aspect_link, :html => { :class => 'form-horizontal' } do |f|
+      .control-group.controls
+        = f.collection_select(:aspect_id, @available_aspects, :id, :title, :prompt => true)
+      .control-group
+        = f.label :note, :class => 'control-label'
+        .controls
+          = f.text_area :note, :rows => 3, :class => 'text_area'
+      = f.hidden_field(:aspected_id, :value => @aspect_link.aspected_id)
+      = f.hidden_field(:aspected_type, :value => @aspect_link.aspected_type)
+      .form-actions
+        = f.submit 'Add Aspect', :class => 'btn btn-primary',
+          :controller => 'aspect_links',
+          :method => 'create'

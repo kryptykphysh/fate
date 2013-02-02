@@ -16,13 +16,13 @@
   = @character.mental_stress
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
-  = raw @character.description
+  = simple_format(@character.description)
 %p
   %strong= model_class.human_attribute_name(:refresh) + ':'
   = @character.refresh
 %p
   %strong= model_class.human_attribute_name(:character_idea) + ':'
-  = raw @character.character_idea
+  = simple_format(@character.character_idea)
 %p
   %strong= model_class.human_attribute_name(:phase_trio_one) + ':'
   = @character.phase_trio_one
@@ -32,6 +32,11 @@
 %p
   %strong= model_class.human_attribute_name(:phase_trio_three) + ':'
   = @character.phase_trio_three
+
+%p
+  %strong Aspects:
+- @character.aspects.each do |aspect|
+  %p= link_to aspect.title, aspect_path(aspect)
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), characters_path, :class => 'btn'

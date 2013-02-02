@@ -13,7 +13,7 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.json
   def show
-    @character = Character.find(params[:id])
+    @character = Character.find(params[:id], :include => [:aspect_links, :aspects])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,9 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
-    @character = Character.find(params[:id])
+    @character = Character.find(params[:id], :include => [:aspect_links, :aspects])
+    @available_aspects = Aspect.all.reject { |array| @character.aspects.include? array }
+    @aspect_link = @character.aspect_links.build
   end
 
   # POST /characters

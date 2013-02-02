@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @story = Story.find(params[:id])
+    @story = Story.find(params[:id], :include => [:aspect_links, :aspects])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,9 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
+    @story = Story.find(params[:id], :include => [:aspect_links, :aspects])
+    @available_aspects = Aspect.all.reject { |array| @story.aspects.include? array }
+    @aspect_link = @story.aspect_links.build
   end
 
   # POST /stories

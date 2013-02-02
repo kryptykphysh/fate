@@ -44,7 +44,7 @@ class AspectLinksController < ApplicationController
 
     respond_to do |format|
       if @aspect_link.save
-        format.html { redirect_to @aspect_link, notice: 'Aspect link was successfully created.' }
+        format.html { redirect_to :back, notice: 'Aspect link was successfully created.' }
         format.json { render json: @aspect_link, status: :created, location: @aspect_link }
       else
         format.html { render action: "new" }
