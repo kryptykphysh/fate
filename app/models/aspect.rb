@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: aspects
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Aspect < ActiveRecord::Base
   attr_accessible :title
 
@@ -6,4 +16,6 @@ class Aspect < ActiveRecord::Base
   has_many :characters, :through => :aspect_links, :source => :aspected, :source_type => 'Character'
 
   default_scope order('title ASC')
+
+  validates :title, :presence => true, :length => { :minimum => 3, :maximum => 255 }
 end

@@ -2,17 +2,13 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human
 
-= @aspect_link.aspected_id
-= @aspect_link.aspected_type
-
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
   = @story.title
 
-%p
-  %strong Aspects:
-- @story.aspects.each do |aspect|
-  %p= link_to aspect.title, aspect_path(aspect)
+%h3 Aspects
+= render :partial => 'aspect_links/show_collection', :collection => @story.aspect_links, :as => :aspect_link || 'There are no aspects to display.'
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), stories_path, :class => 'btn'

@@ -13,7 +13,7 @@ class AspectsController < ApplicationController
   # GET /aspects/1
   # GET /aspects/1.json
   def show
-    @aspect = Aspect.find(params[:id])
+    @aspect = Aspect.find(params[:id], :include => [:characters, :stories])
 
     respond_to do |format|
       format.html # show.html.erb

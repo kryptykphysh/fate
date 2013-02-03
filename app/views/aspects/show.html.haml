@@ -4,8 +4,13 @@
 
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
-  %br
   = @aspect.title
+
+%h3 Characters
+= render :partial => 'characters/show_collection', :collection => @aspect.characters, :as => :character || 'There are no characters to display.'
+
+%h3 Stories
+= render :partial => 'stories/show_collection', :collection => @aspect.stories, :as => :story || 'There are no stories to display.'
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), aspects_path, :class => 'btn'

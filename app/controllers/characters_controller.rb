@@ -40,6 +40,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id], :include => [:aspect_links, :aspects])
     @available_aspects = Aspect.all.reject { |array| @character.aspects.include? array }
     @aspect_link = @character.aspect_links.build
+    @aspect = Aspect.new
   end
 
   # POST /characters

@@ -4,7 +4,7 @@
 
 %p
   %strong= model_class.human_attribute_name(:story_id) + ':'
-  = @character.story.title
+  = link_to @character.story.title, story_path(@character.story)
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
   = @character.name
@@ -33,10 +33,8 @@
   %strong= model_class.human_attribute_name(:phase_trio_three) + ':'
   = @character.phase_trio_three
 
-%p
-  %strong Aspects:
-- @character.aspects.each do |aspect|
-  %p= link_to aspect.title, aspect_path(aspect)
+%h3 Aspects
+= render :partial => 'aspect_links/show_collection', :collection => @character.aspect_links, :as => :aspect_link || 'There are no aspects to display.'
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), characters_path, :class => 'btn'
