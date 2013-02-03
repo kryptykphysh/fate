@@ -1,3 +1,7 @@
-%p
-  %strong= link_to aspect_link.aspect.title, aspect_path(aspect_link.aspect)
-%p= simple_format(aspect_link.note)
+- unless aspect_link.aspect.nil?
+  %p
+    %strong= link_to aspect_link.aspect.title, aspect_path(aspect_link.aspect)
+  %p= simple_format(aspect_link.note)
+
+  %p.form_actions
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), aspect_link_path(aspect_link), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'

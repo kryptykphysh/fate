@@ -3,9 +3,7 @@
   %h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
 = render :partial => "form"
 
-%p
-  %strong Aspects:
-- @character.aspects.each do |aspect|
-  %p= link_to aspect.title, aspect_path(aspect)
+%h3 Aspects
+= render :partial => 'aspect_links/show_collection', :collection => @character.aspect_links, :as => :aspect_link || 'There are no aspects to display.'
 
 = render 'aspect_links/add_existing_aspect_form'

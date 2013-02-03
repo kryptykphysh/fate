@@ -76,7 +76,7 @@ class AspectLinksController < ApplicationController
     @aspect_link.destroy
 
     respond_to do |format|
-      format.html { redirect_to aspect_links_url }
+      format.html { redirect_to :back, notice: 'Aspect successfully removed.' }
       format.json { head :no_content }
     end
   end
