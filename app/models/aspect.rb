@@ -14,6 +14,7 @@ class Aspect < ActiveRecord::Base
   has_many :aspect_links, :dependent => :destroy
   has_many :stories, :through => :aspect_links, :source => :aspected, :source_type => 'Story'
   has_many :characters, :through => :aspect_links, :source => :aspected, :source_type => 'Character'
+  accepts_nested_attributes_for :aspect_links
 
   default_scope order('title ASC')
 

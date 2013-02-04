@@ -4,3 +4,6 @@
 
 $("#add_existing_aspect_toggle").click ->
 	$("#add_existing_aspect_form").slideToggle()
+
+$("#add_new_aspect_toggle").click ->
+	$("#add_new_aspect_form").slideToggle()

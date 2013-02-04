@@ -1,4 +1,15 @@
 class AspectLinksController < ApplicationController
+  
+  def add_new_aspect
+    @aspect = Aspect.new(params[:aspect])
+    if @aspect.save
+      @aspect_link = AspectLink.new(params[:aspect_link])
+      @aspect_link.aspect_id = @aspect.id
+      @aspect_link.save
+      redirect_to :back, notice: 'Aspect created and added'
+    end
+  end
+
   # GET /aspect_links
   # GET /aspect_links.json
   def index

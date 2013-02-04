@@ -17,4 +17,5 @@ class AspectLink < ActiveRecord::Base
 
   belongs_to :aspected, :polymorphic => true
   belongs_to :aspect
+  accepts_nested_attributes_for :aspect
 end

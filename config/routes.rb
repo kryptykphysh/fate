@@ -10,6 +10,7 @@ Fate::Application.routes.draw do
 
   resources :stories
 
+  post "/aspect_links/add_new_aspect" => "aspect_links#add_new_aspect"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
